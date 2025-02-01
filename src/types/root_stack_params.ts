@@ -1,3 +1,8 @@
+import { TaskProps } from "./task_types"
+
 export type RootStackParamsList = {
-    TaskPage: undefined
+    TaskPage: undefined,
+    TaskEditPage: {
+        task : TaskProps
+    },
 }

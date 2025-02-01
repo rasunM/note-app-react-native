@@ -13,7 +13,7 @@ const Search_Bar = () => {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.container}>
-                <Icon name="search" size={18} color='#8B8B8B' style={styles.iconSearch}/>
+                <Icon name="search" size={18} color='#8B8B8B' style={styles.icon}/>
                 <TextInput 
                 style={styles.textContainer} 
                 placeholder="Search notes" 
@@ -32,7 +32,7 @@ export default Search_Bar
 
 const styles = StyleSheet.create({
     mainContainer: {
-        marginHorizontal: 35,
+        marginHorizontal:10,
         marginVertical: 15,
     },
     container: {
@@ -43,19 +43,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#DADADA',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingHorizontal: 15,
+        paddingHorizontal: 30,
         borderRadius: 100
     },
-    iconSearch: {
-        marginHorizontal:5,
-        marginLeft: 30
+    icon: {
+        marginHorizontal:-12,
     },
-    iconClose: {},
+    iconClose: {
+        marginHorizontal: -12,
+    },
     textContainer : {
+        display: 'flex',
         width: "100%",
         height: "100%",
         backgroundColor: '#DADADA',
         borderRadius: 100,
+        marginLeft: 15
     },
 
 })

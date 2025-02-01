@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { RootStackParamsList } from './src/types/root_stack_params';
 import TaskPage from './src/screens/tasks_page';
+import TaskEditPage from './src/screens/task_edit_page';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -24,6 +25,9 @@ function App(): React.JSX.Element {
       <Stack.Navigator initialRouteName='TaskPage'>
         <Stack.Screen name='TaskPage' component={TaskPage} options={{
           title: 'Notes'
+        }}/>
+        <Stack.Screen name='TaskEditPage' component={TaskEditPage} options={{
+          title: "Task Details"
         }}/>
       </Stack.Navigator>
     </NavigationContainer>

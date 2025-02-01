@@ -1,12 +1,15 @@
-import { PropsWithChildren, useEffect, useState } from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {useEffect, useState } from 'react';
+import {View, StyleSheet, FlatList, Pressable} from 'react-native';
 import { TaskProps } from '../types/task_types';
 import { TasksData } from '../constants/tasks';
 import Search_Bar from '../components/search_bar';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Card from '../components/card';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamsList } from '../types/root_stack_params';
 
+type TaskPageProps = NativeStackScreenProps<RootStackParamsList, "TaskPage">;
 
-const TaskPage = () => {
+const TaskPage = ({navigation}: TaskPageProps) => {
 
     const [tasks, setTasks] = useState<TaskProps[]>();
 
@@ -17,8 +20,9 @@ const TaskPage = () => {
     return (
         <View style={styles.container}>
             <Search_Bar/>
-            <Text>ffsdfsdf</Text>
-            <FlatList data={tasks} renderItem={({item: task}) => <Text>{task.title}</Text>}/>
+            <FlatList data={tasks} style={styles.container} renderItem={
+                ({item: task}) => <Pressable onPress={() => navigation.navigate("TaskEditPage", {task})}><Card title={task.title} content={task.description} day={''} month={task.updateDate}/></Pressable>} 
+            />
         </View>
     )
 }
@@ -27,8 +31,8 @@ export default TaskPage;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        marginHorizontal: 6,
+        
+    
     }
 })
