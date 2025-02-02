@@ -39,7 +39,7 @@ export const TasksData: TaskProps[] = [
     },
     {
       title: "Deploy to Production",
-      description: "Prepare the final build and deploy the project to the production server.",
+      description: "Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.",
       day: "Friday",
       date: "2025-02-07",
       updateTime: "18:00",
