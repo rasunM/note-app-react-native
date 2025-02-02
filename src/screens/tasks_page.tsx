@@ -12,7 +12,7 @@ type TaskPageProps = NativeStackScreenProps<RootStackParamsList, "TaskPage">;
 
 const TaskPage = ({navigation}: TaskPageProps) => {
 
-    const [tasks, setTasks] = useState<TaskProps[]>();
+    const [tasks, setTasks] = useState<TaskProps[]>([]);
 
     useEffect(() => {
         setTasks(TasksData);
@@ -31,13 +31,13 @@ const TaskPage = ({navigation}: TaskPageProps) => {
                         description: "",
                         day: "",
                         date: "",
-                        updateTime: "",
-                        updateDate: "",
+                        updateTime: "10.41",
+                        updateDate: "2025-02-02",
                         noCharacters: 0,
                     }
                 })
             }}>
-                <FloatingActionButton/>
+                <FloatingActionButton iconName='add' size={35}/>
             </Pressable>
             
         </View>
@@ -49,7 +49,7 @@ export default TaskPage;
 const styles = StyleSheet.create({
     container: {
         marginHorizontal: 6,
-        
+        height: '100%'
     
     }
 })

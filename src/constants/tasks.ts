@@ -1,6 +1,6 @@
 import { TaskProps } from "../types/task_types"
 
-export const TasksData: TaskProps[] = [
+export let TasksData: TaskProps[] = [
     {
       title: "Complete React Native Project",
       description: "Finish implementing all screens and functionalities for the React Native mobile app.",
@@ -36,6 +36,33 @@ export const TasksData: TaskProps[] = [
       updateTime: "12:15",
       updateDate: "2025-02-05",
       noCharacters: 19,
+    },
+    {
+      title: "Deploy to Production",
+      description: "Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.",
+      day: "Friday",
+      date: "2025-02-07",
+      updateTime: "18:00",
+      updateDate: "2025-02-06",
+      noCharacters: 21,
+    },
+    {
+      title: "Deploy to Production",
+      description: "Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.",
+      day: "Friday",
+      date: "2025-02-07",
+      updateTime: "18:00",
+      updateDate: "2025-02-06",
+      noCharacters: 21,
+    },
+    {
+      title: "Deploy to Production",
+      description: "Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.Prepare the final build and deploy the project to the production server.",
+      day: "Friday",
+      date: "2025-02-07",
+      updateTime: "18:00",
+      updateDate: "2025-02-06",
+      noCharacters: 21,
     },
     {
       title: "Deploy to Production",

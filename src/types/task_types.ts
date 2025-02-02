@@ -1,5 +1,5 @@
 export type TaskProps = {
-    title : string,
+    title : string ,
     description : string,
     day : string,
     date : string,

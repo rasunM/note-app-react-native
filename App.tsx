@@ -24,10 +24,11 @@ function App(): React.JSX.Element {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='TaskPage'>
         <Stack.Screen name='TaskPage' component={TaskPage} options={{
-          title: 'Notes'
+          title: 'Notes',
         }}/>
         <Stack.Screen name='TaskEditPage' component={TaskEditPage} options={{
-          title: "Task Details"
+          title: "Notes Details",
+          
         }}/>
       </Stack.Navigator>
     </NavigationContainer>
