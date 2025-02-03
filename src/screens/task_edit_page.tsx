@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 import FloatingActionButton from '../components/floating_action_button';
 import {Pressable} from 'react-native';
 import { TasksData } from '../constants/tasks';
+import { updateTask } from '../utils/tasks';
 
 type TaskEditProps = NativeStackScreenProps<
   RootStackParamsList,
@@ -20,7 +21,7 @@ const TaskEditPage = ({route, navigation}: TaskEditProps) => {
   useEffect(() => {
     setTitle(task.title);
     setDescription(task.description);
-  }, []);
+  }, [task]);
 
   return (
     <View style={styles.container}>
@@ -50,17 +51,9 @@ const TaskEditPage = ({route, navigation}: TaskEditProps) => {
       <View style={styles.fabContainer}>
         <Pressable
           onPress={() => {
-            navigation.navigate('TaskPage');
             // add data to the list
-            TasksData.push({
-              title: title,
-              description: description,
-              day: "Monday",
-              date: "2025-02-03",
-              updateTime: "14:30",
-              updateDate: "2025-02-02",
-              noCharacters: 28,
-            })
+            updateTask(task.title, title, description);
+            navigation.popToTop();
           }}>
           <FloatingActionButton iconName="done" size={30} />
         </Pressable>
