@@ -17,6 +17,7 @@ export const updateTask = (
 
 export const addTask = (title: string, description: string) => {
   TasksData.push({
+    mykey: TasksData.length,
     title: title,
     description: description,
     day: 'Monday',

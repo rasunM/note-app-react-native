@@ -21,12 +21,18 @@ const TaskPage = ({navigation}: TaskPageProps) => {
       // recreate the task list
       setTasks([...TasksData]);
       // console.log(tasks)
-    }, [TasksData]),
+    }, []),
   );
 
   // callaback function
   const handleSearchBarText = (e: string): void => {
     setSearchText(e);
+  };
+
+  const handleDeleteButton = (index: number): void => {
+    // const updateTasks = TasksData.filter((_, i) => i !== index);
+    TasksData.splice(index, 1)
+    setTasks([...TasksData]);
   };
 
   // filter the dataset
@@ -46,10 +52,13 @@ const TaskPage = ({navigation}: TaskPageProps) => {
           <Pressable
             onPress={() => navigation.navigate('TaskEditPage', {task})}>
             <Card
+              key={task.mykey}
+              mykey={task.mykey}
               title={task.title}
               content={task.description}
               day={''}
               month={task.updateDate}
+              deleteAction={handleDeleteButton}
             />
           </Pressable>
         )}
@@ -58,6 +67,7 @@ const TaskPage = ({navigation}: TaskPageProps) => {
         onPress={() => {
           navigation.navigate('TaskEditPage', {
             task: {
+              mykey: TasksData.length - 1,
               title: '',
               description: '',
               day: '',

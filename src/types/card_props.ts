@@ -1,6 +1,10 @@
+import {TaskProps} from './task_types';
+
 export type CardProps = {
-    title: string,
-    content: string,
-    day: string,
-    month: string
-}
+  mykey: number;
+  title: string;
+  content: string;
+  day: string;
+  month: string;
+  deleteAction: (index: number) => void;
+};

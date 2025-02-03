@@ -9,9 +9,8 @@ const Search_Bar = ({sendMessage}: SearchBarProps) => {
 
     const onPressClear = () => {
         setText("");
+        sendMessage("")
     }
-
-
 
     return (
         <View style={styles.mainContainer}>
