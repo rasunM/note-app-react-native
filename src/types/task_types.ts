@@ -8,4 +8,8 @@ export type TaskProps = {
     noCharacters : number
 }
 
+export type SearchBarProps = {
+    sendMessage: (message: string) => void;
+}
+
 

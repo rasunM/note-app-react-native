@@ -13,6 +13,7 @@ type TaskPageProps = NativeStackScreenProps<RootStackParamsList, 'TaskPage'>;
 
 const TaskPage = ({navigation}: TaskPageProps) => {
   const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [searchText, setSearchText] = useState<string>('');
 
   useFocusEffect(
     useCallback(() => {
@@ -23,11 +24,23 @@ const TaskPage = ({navigation}: TaskPageProps) => {
     }, [TasksData]),
   );
 
+  // callaback function
+  const handleSearchBarText = (e: string): void => {
+    setSearchText(e);
+  };
+
+  // filter the dataset
+  const filteredData = tasks.filter(
+    task =>
+      task.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      task.description.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
   return (
     <View style={styles.container}>
-      <Search_Bar />
+      <Search_Bar sendMessage={handleSearchBarText} />
       <FlatList
-        data={tasks}
+        data={filteredData}
         style={styles.container}
         renderItem={({item: task}) => (
           <Pressable

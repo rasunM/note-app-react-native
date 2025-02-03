@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { StyleSheet, TextInput, View } from "react-native"
 import Icon  from "react-native-vector-icons/MaterialIcons"
+import { SearchBarProps } from "../types/task_types";
 
-const Search_Bar = () => {
+const Search_Bar = ({sendMessage}: SearchBarProps) => {
 
     const [text, setText] = useState<string>("");
 
     const onPressClear = () => {
         setText("");
     }
+
+
 
     return (
         <View style={styles.mainContainer}>
@@ -19,6 +22,8 @@ const Search_Bar = () => {
                 placeholder="Search notes" 
                 onChangeText={(value) => {
                     setText(value)
+                    sendMessage(text);
+                    console.log(text)
                 }}
                 value={text}
                 />
