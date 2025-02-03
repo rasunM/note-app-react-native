@@ -17,6 +17,7 @@ const TaskPage = ({navigation}: TaskPageProps) => {
   useFocusEffect(
     useCallback(() => {
       console.log('Refresh detected');
+      // recreate the task list
       setTasks([...TasksData]);
       // console.log(tasks)
     }, [TasksData]),

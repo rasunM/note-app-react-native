@@ -1,27 +1,28 @@
 import {TasksData} from '../constants/tasks';
 
 export const updateTask = (
-  oldTitle: string,
+  taskIndex: number,
   newTitle: string,
   newDescription: string,
 ) => {
-  const taskIndex = TasksData.findIndex(task => task.title === oldTitle);
+  TasksData[taskIndex] = {
+    ...TasksData[taskIndex],
+    title: newTitle,
+    description: newDescription,
+    updateDate: new Date().toISOString().split('T')[0],
+    updateTime: new Date().toLocaleTimeString(),
+    noCharacters: newDescription.length,
+  };
+};
 
-  console.log('Updating task:', oldTitle);
-  console.log('Found index:', taskIndex);
-  console.log('Current TasksData:', TasksData);
-
-  if (taskIndex !== -1) {
-    console.log('Found');
-    TasksData[taskIndex] = {
-      ...TasksData[taskIndex],
-      title: newTitle,
-      description: newDescription,
-      updateDate: new Date().toISOString().split('T')[0],
-      updateTime: new Date().toLocaleTimeString(),
-      noCharacters: newDescription.length,
-    };
-  } else {
-    console.log('no');
-  }
+export const addTask = (title: string, description: string) => {
+  TasksData.push({
+    title: title,
+    description: description,
+    day: 'Monday',
+    date: '2025-02-03',
+    updateDate: new Date().toISOString().split('T')[0],
+    updateTime: new Date().toLocaleTimeString(),
+    noCharacters: description.length,
+  });
 };

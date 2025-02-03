@@ -4,8 +4,8 @@ import {RootStackParamsList} from '../types/root_stack_params';
 import {useEffect, useState} from 'react';
 import FloatingActionButton from '../components/floating_action_button';
 import {Pressable} from 'react-native';
-import { TasksData } from '../constants/tasks';
-import { updateTask } from '../utils/tasks';
+import {TasksData} from '../constants/tasks';
+import {addTask, updateTask} from '../utils/tasks';
 
 type TaskEditProps = NativeStackScreenProps<
   RootStackParamsList,
@@ -22,6 +22,22 @@ const TaskEditPage = ({route, navigation}: TaskEditProps) => {
     setTitle(task.title);
     setDescription(task.description);
   }, [task]);
+
+  const handleTask = () => {
+    // check whether the task is exist
+    const taskIndex = TasksData.findIndex(
+      taskData => taskData.title === task.title,
+    );
+    // create new task
+    if (taskIndex === -1) {
+      addTask(title, description);
+    }
+    // update existing task
+    else {
+      updateTask(taskIndex, title, description);
+    }
+    navigation.popToTop();
+  };
 
   return (
     <View style={styles.container}>
@@ -49,12 +65,7 @@ const TaskEditPage = ({route, navigation}: TaskEditProps) => {
         onChangeText={text => setDescription(text)}
       />
       <View style={styles.fabContainer}>
-        <Pressable
-          onPress={() => {
-            // add data to the list
-            updateTask(task.title, title, description);
-            navigation.popToTop();
-          }}>
+        <Pressable onPress={handleTask}>
           <FloatingActionButton iconName="done" size={30} />
         </Pressable>
       </View>
