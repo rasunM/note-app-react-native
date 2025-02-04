@@ -1,5 +1,5 @@
 import {useCallback, useState} from 'react';
-import {View, StyleSheet, FlatList, Pressable} from 'react-native';
+import {View, StyleSheet, FlatList, Pressable, Text} from 'react-native';
 import {TaskProps} from '../types/task_types';
 import {TasksData} from '../constants/tasks';
 import Search_Bar from '../components/search_bar';
@@ -31,7 +31,7 @@ const TaskPage = ({navigation}: TaskPageProps) => {
 
   const handleDeleteButton = (index: number): void => {
     // const updateTasks = TasksData.filter((_, i) => i !== index);
-    TasksData.splice(index, 1)
+    TasksData.splice(index, 1);
     setTasks([...TasksData]);
   };
 
@@ -42,27 +42,35 @@ const TaskPage = ({navigation}: TaskPageProps) => {
       task.description.toLowerCase().includes(searchText.toLowerCase()),
   );
 
+  console.log(tasks.length)
+
   return (
     <View style={styles.container}>
       <Search_Bar sendMessage={handleSearchBarText} />
-      <FlatList
-        data={filteredData}
-        style={styles.container}
-        renderItem={({item: task}) => (
-          <Pressable
-            onPress={() => navigation.navigate('TaskEditPage', {task})}>
-            <Card
-              key={task.mykey}
-              mykey={task.mykey}
-              title={task.title}
-              content={task.description}
-              day={''}
-              month={task.updateDate}
-              deleteAction={handleDeleteButton}
-            />
-          </Pressable>
-        )}
-      />
+      {tasks.length !== 0 ? (
+        <FlatList
+          data={filteredData}
+          style={styles.container}
+          renderItem={({item: task}) => (
+            <Pressable
+              onPress={() => navigation.navigate('TaskEditPage', {task})}>
+              <Card
+                key={task.mykey}
+                mykey={task.mykey}
+                title={task.title}
+                content={task.description}
+                day={''}
+                month={task.updateDate}
+                deleteAction={handleDeleteButton}
+              />
+            </Pressable>
+          )}
+        />
+      ) : (
+        <View style={styles.emptyContainer}>
+          <Text>Your data is empty</Text>
+        </View>
+      )}
       <Pressable
         onPress={() => {
           navigation.navigate('TaskEditPage', {
@@ -91,4 +99,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
     height: '100%',
   },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  emptyContainerText: {
+    color: ''
+  }
 });
