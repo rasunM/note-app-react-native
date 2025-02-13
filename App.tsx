@@ -15,13 +15,14 @@ import TaskPage from './src/screens/tasks_page';
 import TaskEditPage from './src/screens/task_edit_page';
 import MapsCustom from './src/screens/map_view';
 import login from './src/screens/auth/login';
+import RegisterPage from './src/screens/auth/register';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Register">
         <Stack.Screen
           name="TaskPage"
           component={TaskPage}
@@ -47,8 +48,13 @@ function App(): React.JSX.Element {
           name="Login"
           component={login}
           options={{
-            headerShown: false
+            headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterPage}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

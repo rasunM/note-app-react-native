@@ -6,5 +6,6 @@ export type RootStackParamsList = {
         task : TaskProps
     },
     MapViewApp: undefined,
-    Login: undefined
+    Login: undefined,
+    Register: undefined
 }
