@@ -3,7 +3,12 @@ import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {TextFieldProps} from '../types/component_types';
 
-function InputFieldCustom({icon, placeholder, borderEnabled}: TextFieldProps) {
+function InputFieldCustom({
+  icon,
+  placeholder,
+  borderEnabled,
+  onClickData,
+}: TextFieldProps) {
   return (
     <View style={styles.inputFieldMainContainer}>
       <View
@@ -15,6 +20,7 @@ function InputFieldCustom({icon, placeholder, borderEnabled}: TextFieldProps) {
         <TextInput
           style={styles.inputTextContainer}
           placeholder={placeholder}
+          onChangeText={onClickData}
         />
       </View>
     </View>

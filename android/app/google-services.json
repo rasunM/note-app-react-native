@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "583084523282",
+    "project_id": "todo-application-react-native",
+    "storage_bucket": "todo-application-react-native.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583084523282:android:7b52a7cca7873ed1fd3dcb",
+        "android_client_info": {
+          "package_name": "com.todoApplicationFirebase.App"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_hJisLoYeBniS2Gzqy-iWz2t87Jc0t3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

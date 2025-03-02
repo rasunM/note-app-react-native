@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator<RootStackParamsList>();
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register">
+      <Stack.Navigator initialRouteName="TaskPage">
         <Stack.Screen
           name="TaskPage"
           component={TaskPage}

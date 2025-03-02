@@ -10,10 +10,14 @@ import {
 import InputFieldCustom from '../../components/InputFieldCustom';
 import CustomButton from '../../components/CustomButton';
 import CredentialsButton from '../../components/CredentialsButton';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamsList} from '../../types/root_stack_params';
 
 const {width, height} = Dimensions.get('window');
 
-const LoginPage = () => {
+type LoginPageProps = NativeStackScreenProps<RootStackParamsList, 'Login'>;
+
+const LoginPage = ({navigation}: LoginPageProps) => {
   return (
     <View style={styles.container}>
       <Image
@@ -25,7 +29,7 @@ const LoginPage = () => {
         Log in to your Notes App Account
       </Text>
       <View style={styles.textFieldArea}>
-        <InputFieldCustom
+        {/* <InputFieldCustom
           icon="person"
           borderEnabled={true}
           placeholder="example@gmail.com"
@@ -34,9 +38,14 @@ const LoginPage = () => {
           icon="lock"
           borderEnabled={false}
           placeholder="password"
-        />
+        /> */}
       </View>
-      <CustomButton />
+      <Pressable
+        onPress={() => {
+          navigation.popTo('TaskPage');
+        }}>
+        <CustomButton title="LOG IN" />
+      </Pressable>
       <Text style={{color: 'grey', marginVertical: 15}}>Or connect using</Text>
       <View style={styles.credentailSection}>
         <CredentialsButton
@@ -51,9 +60,15 @@ const LoginPage = () => {
         />
       </View>
       <View style={{flexDirection: 'row', marginVertical: 15, gap: 5}}>
-        <Text >Don't have an account</Text>
-        <Pressable>
-          <Text style={{color: "#1750BB", fontWeight: '700', cursor: 'pointer'}}>Sign Up</Text>
+        <Text>Don't have an account</Text>
+        <Pressable
+          onPress={() => {
+            navigation.navigate('Register');
+          }}>
+          <Text
+            style={{color: '#1750BB', fontWeight: '700', cursor: 'pointer'}}>
+            Sign Up
+          </Text>
         </Pressable>
       </View>
     </View>

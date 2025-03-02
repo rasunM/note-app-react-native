@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import { SignButtonProps } from '../types/component_types';
 
-function CustomButton() {
+function CustomButton({title}: SignButtonProps) {
   return (
     <View style={style.container}>
-      <Text style={style.text}>LOG IN</Text>
+      <Text style={style.text}>{title}</Text>
     </View>
   );
 }
@@ -17,7 +18,7 @@ const style = StyleSheet.create({
     paddingVertical: 15,
     backgroundColor: '#0E3994',
     paddingHorizontal: 60,
-    borderRadius: 50
+    borderRadius: 50,
   },
   text: {
     color: 'white',
